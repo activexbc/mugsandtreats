@@ -1,13 +1,12 @@
 import express from "express";
 import * as dotenv from "dotenv";
 
+import { Configuration, OpenAIApi } from "openai";
 import {
   registerRouter,
-  loginRouter,
   userDataRouter,
+  loginRouter,
 } from "./routes/auth.routes.js";
-
-import { Configuration, OpenAIApi } from "openai";
 
 dotenv.config();
 
@@ -43,7 +42,7 @@ router.post("/customizer/api/dalle", async (req, res) => {
 });
 
 router.post("/auth/register", registerRouter);
-router.post("/auth/login", loginRouter);
-router.post("/auth/userData", userDataRouter);
+// router.post("/auth/login", loginRouter);
+// router.post("/auth/userData", userDataRouter);
 
 export default router;

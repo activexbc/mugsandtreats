@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
-import "../userDetails";
+import "../userDetails.js";
 
 const User = mongoose.model("UserInfo");
 
