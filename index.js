@@ -3,7 +3,6 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
 import mongoose from "mongoose";
-import serverless from "serverless-http";
 
 import router from "./routes/router";
 mongoose
@@ -22,5 +21,4 @@ app.use(morgan("tiny"));
 
 app.use(express.json());
 
-app.use("/.netlify/functions/index", router);
-module.exports.handler = serverless(app);
+app.use("/", router);
