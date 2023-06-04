@@ -39,7 +39,9 @@ const loginRouter = async (req, res) => {
   }
 
   if (await bcrypt.compare(password, user.password)) {
-    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
+      expiresIn: 10,
+    });
 
     if (res.status(201)) {
       return res.json({ status: "ok", data: token });
@@ -54,7 +56,16 @@ const userDataRouter = async (req, res) => {
   const { token } = req.body;
 
   try {
-    const user = jwt.verify(token, process.env.JWT_SECRET);
+    const user = jwt.verify(token, process.env.JWT_SECRET, (err, res) => {
+      if (err) {
+        return "Token expired";
+      }
+      return res;
+    });
+
+    if (user == "Token expired") {
+      return res.send({ status: "error", data: "Token expired" });
+    }
 
     const useremail = user.email;
 
