@@ -23,6 +23,7 @@ const registerRouter = async (req, res) => {
       username: username,
       email: email,
       password: encryptedPassword,
+      isAdmin: false,
     });
     res.status(200).json({ message: "Registered Correctly" });
   } catch (error) {
