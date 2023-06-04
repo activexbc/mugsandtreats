@@ -6,7 +6,7 @@ import "../userDetails.js";
 const User = mongoose.model("UserInfo");
 
 const registerRouter = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, isAdmin } = req.body;
 
   const encryptedPassword = await bcrypt.hash(password, 10);
 
@@ -23,7 +23,7 @@ const registerRouter = async (req, res) => {
       username: username,
       email: email,
       password: encryptedPassword,
-      isAdmin: false,
+      isAdmin: isAdmin,
     });
     res.status(200).json({ message: "Registered Correctly" });
   } catch (error) {
