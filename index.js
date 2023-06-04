@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import router from "./router.js";
 mongoose
   .connect(
-    "mongodb+srv://activexbc:<password>@cluster1.yf1ml7a.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://activexbc:brandon23@cluster1.yf1ml7a.mongodb.net/?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
     }
