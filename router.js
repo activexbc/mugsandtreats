@@ -42,7 +42,7 @@ router.post("/customizer/api/dalle", async (req, res) => {
 });
 
 router.post("/auth/register", registerRouter);
-// router.post("/auth/login", loginRouter);
-// router.post("/auth/userData", userDataRouter);
+router.post("/auth/login", loginRouter);
+router.post("/auth/userData", userDataRouter);
 
 export default router;
