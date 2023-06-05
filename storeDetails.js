@@ -16,7 +16,7 @@ const StoreDetailsSchema = new mongoose.Schema(
     },
     categorie: {
       type: String,
-      required,
+      required: true,
     },
   },
   {
