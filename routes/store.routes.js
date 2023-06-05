@@ -2,11 +2,12 @@ import mongoose from "mongoose";
 import "../storeDetails.js";
 
 const Store = mongoose.model("StoreInfo");
+const User = mongoose.model("UserInfo");
 
 const storeRouter = async (req, res) => {
   const { name, description, image, categorie } = req.body;
 
-  if (Store.findOne({ isAdmin }) == "true") {
+  if (User.findOne({ isAdmin }) == "true") {
     try {
       await Store.create({
         name: name,
