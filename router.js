@@ -7,7 +7,7 @@ import {
   userDataRouter,
   loginRouter,
 } from "./routes/auth.routes.js";
-import { storeRouter } from "./routes/store.routes.js";
+import { storeDataRouter, storeRouter } from "./routes/store.routes.js";
 
 dotenv.config();
 
@@ -46,5 +46,6 @@ router.post("/auth/register", registerRouter);
 router.post("/auth/login", loginRouter);
 router.post("/auth/userData", userDataRouter);
 router.post("/shop/storeDetails", storeRouter);
+router.get("/shop/storeData", storeDataRouter);
 
 export default router;

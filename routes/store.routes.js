@@ -19,4 +19,11 @@ const storeRouter = async (req, res) => {
   }
 };
 
-export { storeRouter };
+const storeDataRouter = async (req, res) => {
+  try {
+    const allData = await Store.find({});
+    res.send({ status: "ok", data: allData });
+  } catch (error) {}
+};
+
+export { storeRouter, storeDataRouter };
