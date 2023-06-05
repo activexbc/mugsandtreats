@@ -7,7 +7,7 @@ const User = mongoose.model("UserInfo");
 const storeRouter = async (req, res) => {
   const { name, description, image, categorie } = req.body;
 
-  if (User.findOne({ isAdmin }) == "true") {
+  if (User.findOne({ isAdmin }) == true) {
     try {
       await Store.create({
         name: name,
