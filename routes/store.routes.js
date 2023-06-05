@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import "../storeDetails.js";
 
-const Store = mongoose.model("StoreDetails");
+const Store = mongoose.model("StoreInfo");
 
 const storeRouter = async (req, res) => {
   const { name, description, image, categorie } = req.body;
