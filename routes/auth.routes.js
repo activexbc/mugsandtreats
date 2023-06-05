@@ -40,9 +40,7 @@ const loginRouter = async (req, res) => {
   }
 
   if (await bcrypt.compare(password, user.password)) {
-    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
-      expiresIn: 10,
-    });
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {});
 
     if (res.status(201)) {
       return res.json({ status: "ok", data: token });
